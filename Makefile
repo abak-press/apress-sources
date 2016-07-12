@@ -1,17 +1,18 @@
-RAILS_ENV = test
-BUNDLE = RAILS_ENV=${RAILS_ENV} bundle
+BUNDLE_VERSION = 1.7.15
+BUNDLE = bundle _${BUNDLE_VERSION}_
 BUNDLE_OPTIONS = -j 3
 RSPEC = rspec
 APPRAISAL = appraisal
 
-test: bundler appraisal
+default: test
+
+test: appraisal
 	${BUNDLE} exec ${APPRAISAL} ${RSPEC} spec 2>&1
 
-bundler:
-	if ! gem list bundler -i > /dev/null; then \
-	  gem install bundler --no-ri --no-rdoc; \
-	fi
-	${BUNDLE} install ${BUNDLE_OPTIONS}
-
-appraisal:
+appraisal: bundle
 	${BUNDLE} exec ${APPRAISAL} install
+
+bundle:
+	gem list -i -v ${BUNDLE_VERSION} bundler > /dev/null || gem install bundler --no-ri --no-rdoc --version=${BUNDLE_VERSION}
+	${BUNDLE} check || ${BUNDLE} install ${BUNDLE_OPTIONS}
+
