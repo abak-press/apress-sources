@@ -2,26 +2,15 @@ version: '2'
 
 services:
   app:
-    image: abakpress/ruby:1.9.3
+    image: abakpress/ruby:$RUBY_IMAGE_TAG
     environment:
+      - BUNDLE_PATH=/bundle/$DOCKER_RUBY_VERSION
       - SSH_AUTH_SOCK=/ssh/auth/sock
-    command: make
+    command: bash
     volumes:
-      - '.:/app'
-      - '../:/localgems'
-      - ruby-gems:/gems
-      - ssh-data:/ssh:ro
-      - bundler-config:/root/.bundle
+      - .:/app
+      - ssh_data:/ssh:ro
 
 volumes:
-  ruby-gems:
-    external:
-      name: gems-ruby193
-
-  ssh-data:
-    external:
-      name: ssh_data
-
-  bundler-config:
-    external:
-      name: bundler-config
+  ssh_data:
+    external: true

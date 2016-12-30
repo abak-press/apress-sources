@@ -25,8 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rails-cache-tags'
 
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'apress-gems', '>= 0.2'
-  spec.add_development_dependency 'pry-debugger'
 
   spec.add_development_dependency 'rspec', '>= 3.1'
   spec.add_development_dependency 'simplecov'
