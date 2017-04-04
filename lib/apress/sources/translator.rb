@@ -1,4 +1,6 @@
 # coding: utf-8
+require 'string_tools/string'
+
 module Apress
   module Sources
     class Translator < Base
@@ -12,7 +14,7 @@ module Apress
         end
 
         def value_as_boolean(params)
-          translated_value(params).to_s.mb_chars.downcase.to_b
+          StringTools::String.new(value_as_string(params).mb_chars.downcase).to_b
         end
 
         def value_as_date(params)
