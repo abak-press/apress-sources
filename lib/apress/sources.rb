@@ -1,5 +1,3 @@
-require 'rails'
-require 'string_tools'
 require 'apress/sources/version'
 require 'apress/sources/engine'
 require 'rails-cache-tags'

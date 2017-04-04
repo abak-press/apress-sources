@@ -36,7 +36,7 @@ module Apress
       #
       # @raise ArgumentError if can`t extract id from params
       def call(params = {})
-        object = params[:object]
+        object = params.fetch(:object)
         object = object[object_name] || object["#{object_name}_id".to_sym] if object.is_a?(Hash)
 
         case object
@@ -45,7 +45,7 @@ module Apress
         when String
           object.to_i
         else
-          if object.respond_to?(:id)
+          if object && object.respond_to?(:id)
             object.id
           elsif object.respond_to?(:call)
             object.call
