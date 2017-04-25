@@ -27,6 +27,8 @@ module Apress
       def raise_no_accessor(accessor_type, params)
         raise Apress::Sources::Errors::NoAccessor.new(self, accessor_type, params)
       end
+
+      alias :raise_no_implemented :raise_no_accessor
     end
   end
 end
