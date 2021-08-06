@@ -1,6 +1,10 @@
+# v0.4.1
+
+* 2021-08-06 [be6b77e](../../commit/be6b77e) - __(TamarinEA)__ Release 0.4.1 
+* 2021-08-06 [c9ffa29](../../commit/c9ffa29) - __(TamarinEA)__ chore: add ruby 2.4 support 
+
 # v0.4.0
 
-* 2019-08-01 [59c0012](../../commit/59c0012) - __(Andrew N. Shalaev)__ Release v0.4.0 
 * 2019-08-01 [402c077](../../commit/402c077) - __(Andrew N. Shalaev)__ feature: ruby2.3 and rails4.1 and rails.4.2 support 
 
 # v0.3.0
